@@ -6,8 +6,8 @@
     </div>
     <div data-hook="variant" class="field">
       <%= f.label Spree::Variant.model_name.human %><br>
-      <%= f.select :viewable_id, @variants, {}, {: true, :class => 'select2 fullwidth'} %>
-    </div>multiple
+      <%= f.select :viewable_id, @variants, {}, {multiple: true, :class => 'select2 fullwidth'} %>
+    </div>
   </div>
   <div data-hook="alt_text" class="field omega five columns">
     <%= f.label Spree.t(:alt_text) %><br>
