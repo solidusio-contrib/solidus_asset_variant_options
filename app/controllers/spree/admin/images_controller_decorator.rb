@@ -2,11 +2,13 @@ Spree::Admin::ImagesController.class_eval do
   create.before :set_variants
   update.before :set_variants
 
-  def set_variants
-    @image.variant_ids = viewable_ids
-  end
+  private
 
-  def viewable_ids
-    params[:image][:viewable_ids].reject(&:blank?)
-  end
+    def set_variants
+      @image.variant_ids = viewable_ids
+    end
+
+    def viewable_ids
+      params[:image][:viewable_ids].reject(&:blank?)
+    end
 end
