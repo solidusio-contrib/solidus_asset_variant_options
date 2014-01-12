@@ -1,3 +1,7 @@
 Spree::Product.class_eval do
-  has_many :variant_images, source: :images, through: :variants_including_master, order: 'spree_assets.position', select: 'spree_assets.*, spree_assets.position, spree_variants.position', uniq: true
+  has_many :nonuniq_variant_images, -> { order(:position) }, source: :images, through: :variants_including_master
+
+  def variant_images
+    nonuniq_variant_images.uniq
+  end
 end
