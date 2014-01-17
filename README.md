@@ -1,7 +1,9 @@
 SpreeAssetVariantOptions
 ========================
 
-Introduction goes here.
+This is a fork of:
+
+https://github.com/jpdesigndev/spree_asset_variant_options
 
 Installation
 ------------
@@ -9,7 +11,7 @@ Installation
 Add spree_asset_variant_options to your Gemfile:
 
 ```ruby
-gem 'spree_asset_variant_options'
+gem 'spree_asset_variant_options',  :git => 'https://github.com/bonobos/spree_asset_variant_options.git'
 ```
 
 Bundle your dependencies and run the installation generator:
@@ -37,4 +39,4 @@ Simply add this require statement to your spec_helper:
 require 'spree_asset_variant_options/factories'
 ```
 
-Copyright (c) 2013 [name of extension creator], released under the New BSD License
+Copyright (c) 2013 [jpdesigndev], released under the New BSD License
