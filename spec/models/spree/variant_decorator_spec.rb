@@ -6,7 +6,8 @@ describe Spree::Variant do
   let(:image_blue) { create :image }
 
   before do
-    variant.image_ids = [image_green.id, image_blue.id]
+    variant.images << image_green
+    variant.images << image_blue
   end
 
   describe 'variant relationship' do
