@@ -17,7 +17,7 @@ describe Spree::Admin::ImagesHelper do
     end
 
     it 'returns list of classes for variants' do
-      pending
+      skip
       options_text_for(image).should == "tmb-#{variant_small.id} tmb-#{variant_big.id}"
     end
   end

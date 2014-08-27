@@ -31,4 +31,8 @@ describe Spree::Variant do
       variant.images.last.should eq image_blue
     end
   end
+
+  it "cannot associate itself to the same image twice" do
+    expect { variant.images << image_green }.to raise_error ActiveRecord::RecordInvalid, /Image has already been taken/
+  end
 end
