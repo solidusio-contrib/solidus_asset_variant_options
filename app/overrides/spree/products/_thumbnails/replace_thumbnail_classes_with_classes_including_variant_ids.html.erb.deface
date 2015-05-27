@@ -1,17 +1,20 @@
 <!-- replace '#product-thumbnails' -->
-<ul id="product-thumbnails" class="thumbnails inline" data-hook>
-  <% @product.images.each do |i| %>
-    <li class='tmb-all <%= i.variant_html_classes %>'>
-      <%= link_to(image_tag(i.attachment.url(:mini)), i.attachment.url(:product)) %>
-    </li>
-  <% end %>
-
-  <% if @product.has_variants? %>
-    <% @product.variant_images.each do |i| %>
-      <% next if @product.images.include?(i) %>
-      <li class='vtmb <%= i.variant_html_classes %>'>
+<%# no need for thumbnails unless there is more than one image %>
+<% if (@product.images + @product.variant_images).uniq.size > 1 %>
+  <ul id="product-thumbnails" class="thumbnails inline" data-hook>
+    <% @product.images.each do |i| %>
+      <li class='tmb-all <%= i.variant_html_classes %>'>
         <%= link_to(image_tag(i.attachment.url(:mini)), i.attachment.url(:product)) %>
       </li>
     <% end %>
-  <% end %>
-</ul>
+
+    <% if @product.has_variants? %>
+      <% @product.variant_images.each do |i| %>
+        <% next if @product.images.include?(i) %>
+        <li class='vtmb <%= i.variant_html_classes %>'>
+          <%= link_to(image_tag(i.attachment.url(:mini)), i.attachment.url(:product)) %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
