@@ -20,6 +20,20 @@ bundle
 bundle exec rails g spree_asset_variant_options:install
 ```
 
+Since this extension changes the way images are associated, if you've got any
+existing ones you'll need to add the association back in. This can be
+accomplished by running:
+
+```ruby
+Spree::Image.find_each do |image|
+  if image.viewable_type == "Spree::Variant"
+    image.variants << image.viewable
+  end
+end
+```
+
+Afterwards it is recommended to consolidate the images in the admin.
+
 Testing
 -------
 
