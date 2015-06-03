@@ -12,13 +12,13 @@ describe Spree::Admin::ImagesHelper do
   describe '#options_text_for' do
     before do
       viewable = double('viewable')
-      viewable.stub(:is_master?) { false }
-      image.stub(:viewable) { viewable }
+      allow(viewable).to receive(:is_master?) { false }
+      allow(image).to receive(:viewable) { viewable }
     end
 
     it 'returns list of classes for variants' do
       skip
-      options_text_for(image).should == "tmb-#{variant_small.id} tmb-#{variant_big.id}"
+      expect(options_text_for(image)).to eq("tmb-#{variant_small.id} tmb-#{variant_big.id}")
     end
   end
 end
