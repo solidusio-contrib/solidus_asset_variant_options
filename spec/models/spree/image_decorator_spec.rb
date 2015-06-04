@@ -11,13 +11,13 @@ describe Spree::Image do
 
   describe '#variant_html_classes' do
     it 'returns list of classes for variants' do
-      image.variant_html_classes.should == "tmb-#{variant_small.id} tmb-#{variant_big.id}"
+      expect(image.variant_html_classes).to eq("tmb-#{variant_small.id} tmb-#{variant_big.id}")
     end
   end
 
   describe 'variant relationship' do
     it "should have many variants" do
-      image.variants.size.should == 2
+      expect(image.variants.size).to eq(2)
     end
   end
 end

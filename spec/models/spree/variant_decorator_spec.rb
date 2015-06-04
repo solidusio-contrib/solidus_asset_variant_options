@@ -12,7 +12,7 @@ describe Spree::Variant do
 
   describe 'variant relationship' do
     it "should have many images" do
-      variant.images.size.should == 2
+      expect(variant.images.size).to eq(2)
     end
   end
 
@@ -21,14 +21,14 @@ describe Spree::Variant do
       variant.variant_images.where(image: image_blue).first.update_attributes(position: 0)
       variant.variant_images.where(image: image_green).first.update_attributes(position: 1)
 
-      variant.images.first.should eq image_blue
-      variant.images.last.should eq image_green
+      expect(variant.images.first).to eq image_blue
+      expect(variant.images.last).to eq image_green
 
       variant.variant_images.where(image: image_blue).first.update_attributes(position: 1)
       variant.variant_images.where(image: image_green).first.update_attributes(position: 0)
 
-      variant.images.first.should eq image_green
-      variant.images.last.should eq image_blue
+      expect(variant.images.first).to eq image_green
+      expect(variant.images.last).to eq image_blue
     end
   end
 

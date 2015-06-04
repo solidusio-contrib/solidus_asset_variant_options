@@ -14,7 +14,7 @@ describe Spree::Product do
 
   describe '#variant_images' do
     it 'returns unique list of variant images' do
-      product.reload.variant_images.size.should == 2
+      expect(product.reload.variant_images.size).to eq(2)
     end
   end
 
