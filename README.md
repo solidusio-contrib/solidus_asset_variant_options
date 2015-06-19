@@ -17,7 +17,7 @@ Bundle your dependencies and run the installation generator:
 
 ```shell
 bundle
-bundle exec rails g spree_asset_variant_options:install
+bundle exec rails g solidus_asset_variant_options:install
 ```
 
 Since this extension changes the way images are associated, if you've got any
