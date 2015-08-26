@@ -12,4 +12,4 @@ nbproject
 pkg
 *.swp
 spec/dummy
-
+.ruby-version

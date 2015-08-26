@@ -3,7 +3,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = "solidus_asset_variant_options"
-  s.version     = "0.1.0"
+  s.version     = "1.0.0"
   s.summary     = "Allow an image to belong to multiple Spree::Variant models"
   s.description =
     "Spree makes it tedious to upload the same image across" \
@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.require_path = "lib"
   s.requirements << "none"
 
-  s.add_dependency "solidus", [">= 1.0.0.pre", "< 2"]
+  s.add_dependency "solidus", [">= 1.0.0", "< 1.2.0"]
 
   s.add_development_dependency "rspec-rails",  "~> 2.13"
   s.add_development_dependency "simplecov"
