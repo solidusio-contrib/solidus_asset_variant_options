@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "solidus", '~> 1.0'
 
-  s.add_development_dependency "rspec-rails",  "~> 2.13"
+  s.add_development_dependency "rspec-rails",  "~> 3.4"
   s.add_development_dependency "simplecov"
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "sass-rails"
