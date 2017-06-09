@@ -1,4 +1,4 @@
-class AddPositionToSpreeAssetsVariants < ActiveRecord::Migration
+class AddPositionToSpreeAssetsVariants < SolidusSupport::Migration[4.2]
   def change
     add_column :spree_assets_variants, :position, :integer
   end
