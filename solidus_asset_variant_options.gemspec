@@ -3,7 +3,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = "solidus_asset_variant_options"
-  s.version     = "1.0.2"
+  s.version     = "1.0.3.fork"
   s.summary     = "Allow an image to belong to multiple Spree::Variant models"
   s.description =
     "Spree makes it tedious to upload the same image across" \
