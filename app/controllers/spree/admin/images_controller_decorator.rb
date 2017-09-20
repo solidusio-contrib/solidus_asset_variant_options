@@ -1,8 +1,13 @@
 Spree::Admin::ImagesController.class_eval do
-  create.before :set_variants
-  update.before :set_variants
+  new_action.before :set_default_variants
+  create.before     :set_variants
+  update.before     :set_variants
 
   private
+
+    def set_default_variants
+      @image.variant_ids = [@product.id]
+    end
 
     def set_variants
       @image.variant_ids = viewable_ids
