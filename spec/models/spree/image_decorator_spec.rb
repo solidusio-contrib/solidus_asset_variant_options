@@ -20,4 +20,11 @@ describe Spree::Image do
       expect(image.variants.size).to eq(2)
     end
   end
+
+  it 'validates variant association when told to do so' do
+    image.variants = []
+    image.validate_variant_presence = true
+    image.save
+    expect(image.valid?).to be_falsy
+  end
 end
