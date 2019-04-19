@@ -18,8 +18,6 @@ require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 require 'solidus_support/extension/rails_helper'
 require "spree_asset_variant_options/factories"
 
-Dir[File.join(File.dirname(__FILE__), "support/**/*.rb")].each { |f| require f }
-
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.expose_current_running_example_as :example
