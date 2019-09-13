@@ -1,10 +1,10 @@
 Solidus Asset Variant Options
 =============================
 
+[![CircleCI](https://circleci.com/gh/solidusio-contrib/solidus_asset_variant_options.svg?style=svg)](https://circleci.com/gh/solidusio-contrib/solidus_asset_variant_options)
+
 Adds the ability for admins to use the same image asset for multiple variants.
 Originally a fork of [jpdesigndev/spree_asset_variant_options](https://github.com/jpdesigndev/spree_asset_variant_options).
-
-[![Build Status](https://travis-ci.org/solidusio/solidus_asset_variant_options.svg?branch=master)](https://travis-ci.org/solidusio/solidus_asset_variant_options)
 
 Installation
 ------------
