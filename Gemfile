@@ -10,7 +10,7 @@ gem "rails-controller-testing", group: :test
 if ENV['DB'] == 'mysql'
   gem 'mysql2', '~> 0.4.10'
 else
-  gem 'pg', '~> 0.21'
+  gem 'pg', '~> 1.1'
 end
 
 # Needed to help Bundler figure out how to resolve dependencies, otherwise it takes forever to
