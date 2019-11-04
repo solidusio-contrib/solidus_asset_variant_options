@@ -19,13 +19,14 @@ Gem::Specification.new do |s|
   s.requirements << "none"
 
   s.add_dependency "solidus", ['>= 1.1', '< 3']
-  s.add_dependency "solidus_support", "~> 0.2.2"
+  s.add_dependency "solidus_support"
 
-  s.add_development_dependency "rspec-rails",  "~> 3.4"
+  s.add_development_dependency "rspec-rails"
   s.add_development_dependency "simplecov"
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "sass-rails"
   s.add_development_dependency "coffee-rails"
   s.add_development_dependency "database_cleaner"
   s.add_development_dependency "ffaker"
+  s.add_development_dependency "selenium-webdriver"
 end
