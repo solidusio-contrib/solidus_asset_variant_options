@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# frozen_string_literal: true
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.description =
     "Spree makes it tedious to upload the same image across" \
     "multiple variants. This gem solves the problem."
-  s.required_ruby_version = ">= 2.1"
+  s.required_ruby_version = ">= 2.1" # rubocop:disable Gemspec/RequiredRubyVersion
 
   s.author       = "Solidus Team"
   s.email        = "contact@solidus.io"
@@ -19,13 +19,11 @@ Gem::Specification.new do |s|
   s.requirements << "none"
 
   s.add_dependency "solidus", ['>= 1.1', '< 3']
-  s.add_dependency "solidus_support", "~> 0.2.2"
+  s.add_dependency "solidus_support", "~> 0.3.3"
 
-  s.add_development_dependency "rspec-rails",  "~> 3.4"
-  s.add_development_dependency "simplecov"
-  s.add_development_dependency "sqlite3"
-  s.add_development_dependency "sass-rails"
   s.add_development_dependency "coffee-rails"
-  s.add_development_dependency "database_cleaner"
-  s.add_development_dependency "ffaker"
+  s.add_development_dependency "pry-rails"
+  s.add_development_dependency "rails-controller-testing"
+  s.add_development_dependency "sass-rails"
+  s.add_development_dependency "solidus_extension_dev_tools"
 end
