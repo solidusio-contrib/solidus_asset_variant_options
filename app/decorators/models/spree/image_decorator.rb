@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spree
   module ImageDecorator
     attr_accessor :viewable_ids
@@ -10,8 +12,6 @@ module Spree
     def variant_html_classes
       variant_ids.map { |variant| "tmb-#{variant}" }.join(" ")
     end
-
-    private
 
     ::Spree::Image.prepend self
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Spree::Image do
@@ -16,7 +18,7 @@ describe Spree::Image do
   end
 
   describe 'variant relationship' do
-    it "should have many variants" do
+    it "has many variants" do
       expect(image.variants.size).to eq(2)
     end
   end

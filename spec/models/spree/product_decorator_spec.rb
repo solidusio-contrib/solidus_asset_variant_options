@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Spree::Product do
@@ -17,5 +19,4 @@ describe Spree::Product do
       expect(product.reload.variant_images.size).to eq(2)
     end
   end
-
 end

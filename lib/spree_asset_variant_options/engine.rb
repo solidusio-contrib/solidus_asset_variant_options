@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SpreeAssetVariantOptions
   class Engine < Rails::Engine
     require "spree/core"
@@ -15,6 +17,6 @@ module SpreeAssetVariantOptions
       end
     end
 
-    config.to_prepare &method(:activate).to_proc
+    config.to_prepare(&method(:activate).to_proc)
   end
 end

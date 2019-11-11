@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddIdToSpreeAssetsVariants < SolidusSupport::Migration[4.2]
   def change
     add_column :spree_assets_variants, :id, :primary_key

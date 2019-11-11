@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 module Spree
-  class VariantImage < ActiveRecord::Base
+  class VariantImage < ApplicationRecord
     self.table_name = :spree_assets_variants
     belongs_to :image, class_name: 'Spree::Image'
     belongs_to :variant, class_name: 'Spree::Variant', touch: true
 
     scope :with_position, -> { where("position IS NOT NULL") }
-    default_scope -> { order("#{self.table_name}.position") }
+    default_scope -> { order("#{table_name}.position") }
 
     # on create only just in case there are some lingering in the system
-    validates_uniqueness_of :image_id, scope: :variant_id, on: :create
+    validates :image_id, uniqueness: { scope: :variant_id, on: :create }
   end
 end

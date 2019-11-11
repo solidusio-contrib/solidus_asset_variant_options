@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spree
   module VariantDecorator
     def self.prepended(base)
@@ -7,8 +9,6 @@ module Spree
       base.alias_method :images, :variant_image_images
       base.alias_method :images=, :variant_image_images=
     end
-
-    private
 
     ::Spree::Variant.prepend self
   end
