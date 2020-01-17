@@ -1,0 +1,5 @@
+# frozen_string_literal: true
+
+module SolidusAssetVariantOptions
+  VERSION = '1.0.2'
+end

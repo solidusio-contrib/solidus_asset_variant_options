@@ -1,3 +1,4 @@
+*.gem
 \#*
 *~
 .#*
@@ -12,5 +13,4 @@ nbproject
 pkg
 *.swp
 spec/dummy
-.ruby-version
 spec/examples.txt
