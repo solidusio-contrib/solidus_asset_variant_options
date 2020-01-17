@@ -1,29 +1,38 @@
 # frozen_string_literal: true
 
+$:.push File.expand_path('lib', __dir__)
+require 'solidus_asset_variant_options/version'
+
 Gem::Specification.new do |s|
-  s.platform    = Gem::Platform::RUBY
-  s.name        = "solidus_asset_variant_options"
-  s.version     = "1.0.2"
-  s.summary     = "Allow an image to belong to multiple Spree::Variant models"
+  s.name = 'solidus_asset_variant_options'
+  s.version = SolidusAssetVariantOptions::VERSION
+  s.summary = 'Allow an image to belong to multiple Spree::Variant models'
   s.description =
-    "Spree makes it tedious to upload the same image across" \
-    "multiple variants. This gem solves the problem."
-  s.required_ruby_version = ">= 2.1" # rubocop:disable Gemspec/RequiredRubyVersion
+    'Spree makes it tedious to upload the same image across' \
+    'multiple variants. This gem solves the problem.'
+  s.license = 'BSD-3-Clause'
 
-  s.author       = "Solidus Team"
-  s.email        = "contact@solidus.io"
+  s.author = 'Solidus'
+  s.email = 'contact@solidus.io'
+  s.homepage = 'https://github.com/solidusio-contrib/solidus_asset_variant_options'
 
-  s.files       = `git ls-files`.split("\n")
-  s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.require_path = "lib"
-  s.requirements << "none"
+  if s.respond_to?(:metadata)
+    s.metadata["homepage_uri"] = s.homepage if s.homepage
+    s.metadata["source_code_uri"] = s.homepage if s.homepage
+  end
 
-  s.add_dependency "solidus", ['>= 1.1', '< 3']
-  s.add_dependency "solidus_support", "~> 0.3.3"
+  s.required_ruby_version = '~> 2.4'
 
-  s.add_development_dependency "coffee-rails"
-  s.add_development_dependency "pry-rails"
-  s.add_development_dependency "rails-controller-testing"
-  s.add_development_dependency "sass-rails"
-  s.add_development_dependency "solidus_extension_dev_tools"
+  s.files = Dir.chdir(File.expand_path(__dir__)) do
+    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  end
+  s.test_files = Dir['spec/**/*']
+  s.bindir = "exe"
+  s.executables = s.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  s.require_paths = ["lib"]
+
+  s.add_dependency 'solidus_core', ['>= 2.0.0', '< 3']
+  s.add_dependency 'solidus_support', '~> 0.4.0'
+
+  s.add_development_dependency 'solidus_dev_support'
 end
