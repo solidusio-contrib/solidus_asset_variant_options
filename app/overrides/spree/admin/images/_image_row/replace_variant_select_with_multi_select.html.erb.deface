@@ -1,0 +1,2 @@
+<!-- replace 'erb[loud]:contains("f.select :viewable_id")' -->
+<%= f.select :viewable_ids, options_for_select(@variants, image.variant_ids), {}, {multiple: true, :class => 'select2 fullwidth'} %>
