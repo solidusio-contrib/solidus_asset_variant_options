@@ -15,8 +15,10 @@ require 'solidus_dev_support/rspec/feature_helper'
 # in spec/support/ and its subdirectories.
 Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
 
-# Requires factories defined in lib/solidus_asset_variant_options/factories.rb
-require 'solidus_asset_variant_options/factories'
+# Will load Solidus core factory first and then the ones
+# defined in `lib/solidus_asset_variant_options/testing_support/factories.rb`.
+# and `lib/solidus_asset_variant_options/testing_support/factories`.
+SolidusDevSupport::TestingSupport::Factories.load_for(SolidusAssetVariantOptions::Engine)
 
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
