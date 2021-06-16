@@ -6,6 +6,7 @@ module Spree
     belongs_to :image, class_name: 'Spree::Image'
     belongs_to :variant, class_name: 'Spree::Variant', touch: true
 
+    acts_as_list
     scope :with_position, -> { where("position IS NOT NULL") }
     default_scope -> { order("#{table_name}.position") }
 

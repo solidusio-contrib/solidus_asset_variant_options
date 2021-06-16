@@ -21,14 +21,12 @@ describe Spree::Variant do
   describe 'images are ordered by variant image positions' do
     # rubocop:disable RSpec/MultipleExpectations
     it "returns the images ordered by variant image position" do
-      variant.variant_images.where(image: image_blue).first.update(position: 0)
-      variant.variant_images.where(image: image_green).first.update(position: 1)
+      variant.variant_images.where(image: image_blue).first.move_higher
       variant.images.reload
 
       expect(variant.images).to eq([image_blue, image_green])
 
-      variant.variant_images.where(image: image_blue).first.update(position: 1)
-      variant.variant_images.where(image: image_green).first.update(position: 0)
+      variant.variant_images.where(image: image_green).first.move_higher
       variant.images.reload
 
       expect(variant.images).to eq([image_green, image_blue])
