@@ -8,7 +8,7 @@ module Spree
 
     acts_as_list
     scope :with_position, -> { where("position IS NOT NULL") }
-    default_scope -> { order("#{table_name}.position") }
+    default_scope -> { order("spree_assets.position") }
 
     # on create only just in case there are some lingering in the system
     validates :image_id, uniqueness: { scope: :variant_id, on: :create }
