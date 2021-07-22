@@ -14,7 +14,12 @@ module Spree
            params[:image][:viewable_ids].reject(&:blank?).present?
           @image.variant_ids = params[:image][:viewable_ids].reject(&:blank?)
         else #use master variant as falback when empty
-          @image.variant_ids = [@product.master.id]
+          # when only updating an attribute of the image (like 'alt') and not sending
+          # any viewables along, don't overwrite the existing ones
+          if @image.variant_ids.empty?
+            variant = scope.try(:master) || scope
+            @image.variant_ids = [variant.id]
+          end
         end
         # reset normal viewable
         @image.viewable_type = 'Spree::Variant'
