@@ -7,7 +7,7 @@ module Spree
 
       def self.prepended(base)
         def images
-          @images ||= Spree::Image.where(id: @product.variant_images.distinct(false).select(:image_id).group(:image_id).unscope(:order).map(&:image_id))
+          @images ||= Spree::Image.where(id: @product.variant_images.distinct(false).select(:image_id).group(:image_id).unscope(:order).map(&:image_id)).order(:position)
         end
       end
 

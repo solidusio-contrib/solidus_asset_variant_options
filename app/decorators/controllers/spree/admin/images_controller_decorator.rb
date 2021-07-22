@@ -7,23 +7,23 @@ module Spree
         base.before_action :set_variants, only: %i[create update]
       end
 
-      # update variant image positions the same way like image positions
-      # TODO: find more meaningful way to use variant image positions when showing images
-      def update_positions
-        ActiveRecord::Base.transaction do
-          params[:positions].each do |id, index|
-            img = Spree::Image.find(id)
-            img.set_list_position(index)
-            img.variant_images.each do |vi|
-              vi.update_attribute(:position, index)
-            end
-          end
-        end
+      # # update variant image positions the same way like image positions
+      # # TODO: find more meaningful way to use variant image positions when showing images
+      # def update_positions
+      #   ActiveRecord::Base.transaction do
+      #     params[:positions].each do |id, index|
+      #       img = Spree::Image.find(id)
+      #       img.set_list_position(index)
+      #       # img.variant_images.each do |vi|
+      #       #   vi.update_column(:position, img.position)
+      #       # end
+      #     end
+      #   end
 
-        respond_to do |format|
-          format.js { head :no_content }
-        end
-      end
+      #   respond_to do |format|
+      #     format.js { head :no_content }
+      #   end
+      # end
 
       private
 

@@ -18,22 +18,6 @@ describe Spree::Variant do
     end
   end
 
-  describe 'images are ordered by variant image positions' do
-    # rubocop:disable RSpec/MultipleExpectations
-    it "returns the images ordered by variant image position" do
-      variant.variant_images.where(image: image_blue).first.move_higher
-      variant.images.reload
-
-      expect(variant.images).to eq([image_blue, image_green])
-
-      variant.variant_images.where(image: image_green).first.move_higher
-      variant.images.reload
-
-      expect(variant.images).to eq([image_green, image_blue])
-    end
-    # rubocop:enable RSpec/MultipleExpectations
-  end
-
   it "cannot associate itself to the same image twice" do
     expect { variant.images << image_green }.to raise_error(
       ActiveRecord::RecordInvalid,
