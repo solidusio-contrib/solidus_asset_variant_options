@@ -1,4 +1,2 @@
 <!-- replace 'erb[loud]:contains("f.select :viewable_id")' -->
-<% @variants.each do |v| %>
-  <%= v[0] if image.variant_ids.include?(v[1]) %>
-<% end %>
+<%= f.select :viewable_ids, options_for_select(@variants, image.variant_ids), {}, { multiple: true, class: 'select2 fullwidth' } %>
