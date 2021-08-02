@@ -1,15 +1,9 @@
-# frozen_string_literal: true
-
 module Spree
   module Api
     module ImagesControllerDecorator
-      def self.prepended(base)
-        base.after_action :set_variants, only: %i[create update]
-      end
 
-      private
-
-      def set_variants
+      def update
+        @image = Spree::Image.accessible_by(current_ability, :update).find(params[:id])
         if params[:image][:viewable_ids].present? &&
            params[:image][:viewable_ids].reject(&:blank?).present?
           @image.variant_ids = params[:image][:viewable_ids].reject(&:blank?)
@@ -19,6 +13,9 @@ module Spree
         # reset normal viewable
         @image.viewable_type = 'Spree::Variant'
         @image.viewable_id = @image.variant_ids.first
+
+        @image.update(image_params)
+        respond_with(@image, default_template: :show)
       end
 
       ::Spree::Api::ImagesController.prepend self
